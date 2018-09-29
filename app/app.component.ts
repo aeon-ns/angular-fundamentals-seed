@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   template: `
     <div class="app">
       Hello!
+      <div>
+        Here are your goals for today:
+        <goals></goals>
+      </div>
     </div>
   `
 })
