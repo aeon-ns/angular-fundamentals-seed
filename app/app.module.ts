@@ -1,17 +1,23 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+/* Angular Modules */
+import { NgModule } from "@angular/core"; // Used to create our app module
+import { BrowserModule } from '@angular/platform-browser'; // Used to run ts directly in browser
+import { CommonModule } from "@angular/common"; // Used to fetch all angular provided directives, pipes etc.
 
-import { AppComponent } from './app.component';
+/* Our Modules */
+import { GoalsModule } from "./goals/goals.module";
+
+/* Our Component */
+import { AppComponent } from "./app.component";
 
 @NgModule({
   imports: [
-    BrowserModule
-  ],
-  bootstrap: [
-    AppComponent
+    BrowserModule,
+    CommonModule,
+    GoalsModule
   ],
   declarations: [
     AppComponent
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {};
