@@ -11,6 +11,7 @@ export class GoalInformationComponent implements OnChanges, OnInit {
     
     @Input() goal: Goal;
 
+    @Output() update: EventEmitter<any> = new EventEmitter();
     @Output() remove: EventEmitter<any> = new EventEmitter();
 
     ngOnChanges(changes) {
@@ -26,6 +27,7 @@ export class GoalInformationComponent implements OnChanges, OnInit {
 
     onChange(property: string, value: any) {
         this.goal[property] = value;
+        this.update.emit(this.goal);
     }
 
     onRemove() {
