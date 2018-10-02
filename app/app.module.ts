@@ -16,7 +16,6 @@ import { GoalViewerComponent } from "./goals/containers/goal-viewer/goal-viewer.
 /* Our Routes */
 const ROUTES: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'goals', component: GoalViewerComponent, pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -24,7 +23,7 @@ const ROUTES: Routes = [
   imports: [
     BrowserModule,
     CommonModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, { useHash: true }),
     GoalsModule
   ],
   declarations: [
@@ -34,4 +33,4 @@ const ROUTES: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {};
+export class AppModule { };

@@ -3,7 +3,6 @@
     (ngSubmit)="handleSubmit(form.value, form.valid)"
     novalidate
 >
-
     <div>
         Goal Title:
         <input
@@ -17,15 +16,11 @@
         <div
             class="error"
             *ngIf="title.errors?.required && title.dirty"
-        >
-            Title is required.
-        </div>
+        >Title is required.</div>
         <div
             class="error"
             *ngIf="title.errors?.pattern && title.dirty"
-        >
-            Invalid Title
-        </div>
+        >Invalid Title</div>
     </div>
 
     <div>
@@ -40,9 +35,7 @@
         <div
             class="error"
             *ngIf="id.errors?.required && id.dirty"
-        >
-            ID is required.
-        </div>
+        >ID is required.</div>
     </div>
 
     <div>
@@ -66,8 +59,7 @@
             <option
                 *ngFor="let time of timeframes"
                 [value]="time.key"
-            >
-                {{ time.value }}</option>
+            >{{ time.value }}</option>
         </select>
     </div>
 

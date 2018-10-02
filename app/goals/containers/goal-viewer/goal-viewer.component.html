@@ -1,7 +1,7 @@
 <div class="goal-viewer">
-    <div>
-        {{ goal | json }}
-    </div>
+    <button (click)="goBack()">
+        &lsaquo; Go Back
+    </button>
     <br>
     <goal-form
         [detail]="goal"

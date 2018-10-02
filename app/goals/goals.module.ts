@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from "@angular/http";
+import { RouterModule, Routes } from "@angular/router";
 
 /* Container Component */
 import { GoalsComponent } from './containers/goals/goals.component';
@@ -16,6 +17,16 @@ import { GoalFormComponent } from './components/goal-form/goal-form.component';
 /* Providers */
 import { GoalsService } from './providers/goals.service';
 
+const ROUTES: Routes = [
+    {
+        path: 'goals',
+        children: [
+            { path: '', component: GoalsComponent, pathMatch:'full' },
+            { path: ':id', component: GoalViewerComponent }
+        ]
+    }
+];
+
 @NgModule({
     declarations: [
         GoalsComponent,
@@ -28,14 +39,16 @@ import { GoalsService } from './providers/goals.service';
     imports: [
         CommonModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forChild(ROUTES)
     ],
     providers: [
         GoalsService
     ],
-    exports: [
-        GoalsComponent,
-        GoalViewerComponent
-    ]
+    // NO NEED TO DEFINE THESE AS THEY WILL BE AUTO INCLUDED BY ROUTER
+    // exports: [
+    //     GoalsComponent,
+    //     GoalViewerComponent
+    // ]
 })
-export class GoalsModule {}
+export class GoalsModule { }

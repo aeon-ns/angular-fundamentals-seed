@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Goal } from '../../../models/goal.interface';
 import { GoalsService } from '../../providers/goals.service';
@@ -11,7 +12,10 @@ import { GoalsService } from '../../providers/goals.service';
 export class GoalsComponent implements OnInit {
     goals: Goal[];
 
-    constructor(private goalsService: GoalsService) { }
+    constructor(
+        private router: Router,
+        private goalsService: GoalsService
+    ) { }
 
     ngOnInit() {
         this.goalsService.getGoals()
@@ -37,5 +41,9 @@ export class GoalsComponent implements OnInit {
                 console.log('Removing goal : ', event);
                 this.goals[event].isAdded = false;
             });
+    }
+
+    viewGoal(goal: Goal) {
+        this.router.navigate(['/goals', goal.id]);
     }
 }

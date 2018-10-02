@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import "rxjs/add/operator/switchMap";
 
 import { GoalsService } from "../../providers/goals.service";
 import { Goal } from "../../../models/goal.interface";
@@ -9,11 +11,21 @@ import { Goal } from "../../../models/goal.interface";
     templateUrl: 'goal-viewer.component.html'
 })
 export class GoalViewerComponent implements OnInit {
+
     goal: Goal;
-    constructor(private goalService: GoalsService) { }
+
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+        private goalService: GoalsService
+    ) { }
+
     ngOnInit() {
-        this.goalService
-            .getGoal(0)
+        this.route.params
+            // .subscribe((data: object) => console.log('route data: ',data));
+            .switchMap((data: Params) => this.goalService.getGoal(data.id))
+            // this.goalService
+            //     .getGoal(0)
             .subscribe((data: Goal) => this.goal = data);
     }
     onUpdateGoal(event: Goal) {
@@ -21,5 +33,8 @@ export class GoalViewerComponent implements OnInit {
         this.goalService
             .updateGoal(event)
             .subscribe((data: Goal) => this.goal = data);
+    }
+    goBack() {
+        this.router.navigate(['/goals']);
     }
 }
