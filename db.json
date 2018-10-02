@@ -1,29 +1,17 @@
 {
   "goals": [
     {
-      "id": 0,
       "title": "Protect my income",
-      "description": "When something happens, like getting sick or injured, you still need to cover the important things like your household expenses and loan repayments",
-      "points": [
-        "How much insurance do I need?",
-        "What might I be covered?",
-        "How do I get insurance?"
-      ],
-      "image": "assets/images/goal1.jpg",
-      "isAdded": false
+      "id": 0,
+      "isAdded": true,
+      "timeframe": ">5-<10",
+      "timestamp": 1538475690868
     },
     {
+      "title": "Protect my income",
       "id": 2,
-      "image": "assets/images/goal2.jpg",
-      "title": "Goal 2",
-      "description": "As Australia's cost of living continues to rise, it's important to make sure your money goes the distance in retirement to give you the lifestyle you want.",
-      "points": [
-        "Will I have enough super?",
-        "Will I be eligible for the Age Pension?",
-        "Will I work less, stop working or do something different?"
-      ],
-      "isAdded": true,
-      "amount": "22100"
+      "isAdded": false,
+      "timeframe": ">2-<5"
     },
     {
       "id": 3,

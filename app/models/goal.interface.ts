@@ -6,5 +6,6 @@ export interface Goal {
     image: string,
     amount?: number,
     timeframe?: string,
-    isAdded: boolean
+    isAdded: boolean,
+    timestamp?: number 
 }

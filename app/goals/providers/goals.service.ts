@@ -15,6 +15,13 @@ export class GoalsService {
 
     constructor(private http: Http) { }
 
+    getGoal(id: number): Observable<Goal> {
+        return this.http
+            .get(`${GOALS_API}/${id}`)
+            .map((response: Response) => response.json())
+            .catch((error: any) => Observable.throw(error.json()));
+    }
+
     getGoals(): Observable<Goal[]> {
         return this.http
             .get(GOALS_API)
